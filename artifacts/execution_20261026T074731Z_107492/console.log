@@ -1,0 +1,64 @@
+Command: ["C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\.venv\\Scripts\\python.exe", "-u", "-m", "pytest", "-v", "--tb=short", "--driver-debug", "--wait-seconds", "20", "--artifacts-dir", "C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\artifacts\\execution_20261026T074731Z_107492\\scenarios", "--junitxml", "C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\artifacts\\execution_20261026T074731Z_107492\\junit.xml"]
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\29643\Downloads\assignment3_hanlin_opencart\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\29643\Downloads\assignment3_hanlin_opencart
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 9 items
+
+tests/test_T007_add_to_cart.py::test_T007_S1_add_one_valid_product PASSED [ 11%]
+tests/test_T007_add_to_cart.py::test_T007_S2_merge_duplicate_product FAILED [ 22%]
+tests/test_T007_add_to_cart.py::test_T007_S3_reject_missing_required_select PASSED [ 33%]
+tests/test_T008_update_quantity.py::test_T008_S1_increase_quantity PASSED [ 44%]
+tests/test_T008_update_quantity.py::test_T008_S2_decrease_quantity PASSED [ 55%]
+tests/test_T008_update_quantity.py::test_T008_S3_zero_quantity_removes_item PASSED [ 66%]
+tests/test_T009_remove_item.py::test_T009_S1_remove_only_single_unit_item PASSED [ 77%]
+tests/test_T009_remove_item.py::test_T009_S2_remove_one_preserve_other ERROR [ 88%]
+tests/test_T009_remove_item.py::test_T009_S3_remove_whole_multi_unit_row PASSED [100%]
+
+=================================== ERRORS ====================================
+__________ ERROR at setup of test_T009_S2_remove_one_preserve_other ___________
+cart_tests\shop.py:143: in expect_added
+    return self.wait.until(lambda _: self.success_alerts(pid))[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\selenium\webdriver\support\wait.py:121: in until
+    raise TimeoutException(message, screen, stacktrace)
+E   selenium.common.exceptions.TimeoutException: Message:
+
+The above exception was the direct cause of the following exception:
+conftest.py:123: in shop
+    app.add_product(pid, qty)
+cart_tests\shop.py:154: in add_product
+    self.expect_added(pid)
+cart_tests\shop.py:145: in expect_added
+    raise AssertionError(f"No success notification for product {pid}") from exc
+E   AssertionError: No success notification for product 30
+
+The above exception was the direct cause of the following exception:
+conftest.py:131: in shop
+    raise SetupIssue(f"Cannot establish this scenario's baseline: {exc}") from exc
+E   cart_tests.shop.SetupIssue: Cannot establish this scenario's baseline: No success notification for product 30
+================================== FAILURES ===================================
+____________________ test_T007_S2_merge_duplicate_product _____________________
+cart_tests\shop.py:143: in expect_added
+    return self.wait.until(lambda _: self.success_alerts(pid))[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\selenium\webdriver\support\wait.py:121: in until
+    raise TimeoutException(message, screen, stacktrace)
+E   selenium.common.exceptions.TimeoutException: Message:
+
+The above exception was the direct cause of the following exception:
+tests\test_T007_add_to_cart.py:25: in test_T007_S2_merge_duplicate_product
+    shop.add_product(41, 1)
+cart_tests\shop.py:154: in add_product
+    self.expect_added(pid)
+cart_tests\shop.py:145: in expect_added
+    raise AssertionError(f"No success notification for product {pid}") from exc
+E   AssertionError: No success notification for product 41
+- generated xml file: C:\Users\29643\Downloads\assignment3_hanlin_opencart\artifacts\execution_20261026T074731Z_107492\junit.xml -
+= Assignment evidence: C:\Users\29643\Downloads\assignment3_hanlin_opencart\artifacts\execution_20261026T074731Z_107492\scenarios\20261026T074732Z_7c617b =
+=========================== short test summary info ===========================
+ERROR tests/test_T009_remove_item.py::test_T009_S2_remove_one_preserve_other
+FAILED tests/test_T007_add_to_cart.py::test_T007_S2_merge_duplicate_product
+============== 1 failed, 7 passed, 1 error in 180.72s (0:03:00) ===============

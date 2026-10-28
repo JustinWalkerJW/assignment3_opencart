@@ -1,0 +1,13 @@
+Command: ["C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\.venv\\Scripts\\python.exe", "-u", "-m", "pytest", "tests/test_T007_add_to_cart.py::test_T007_S2_merge_duplicate_product", "-v", "--tb=short", "--driver-debug", "--wait-seconds", "20", "--artifacts-dir", "C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\artifacts\\execution_20261026T080638Z_305767\\scenarios", "--junitxml", "C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\artifacts\\execution_20261026T080638Z_305767\\junit.xml"]
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\29643\Downloads\assignment3_hanlin_opencart\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\29643\Downloads\assignment3_hanlin_opencart
+configfile: pytest.ini
+collecting ... collected 1 item
+
+tests/test_T007_add_to_cart.py::test_T007_S2_merge_duplicate_product PASSED [100%]
+
+- generated xml file: C:\Users\29643\Downloads\assignment3_hanlin_opencart\artifacts\execution_20261026T080638Z_305767\junit.xml -
+= Assignment evidence: C:\Users\29643\Downloads\assignment3_hanlin_opencart\artifacts\execution_20261026T080638Z_305767\scenarios\20261026T080639Z_978a80 =
+============================= 1 passed in 17.24s ==============================

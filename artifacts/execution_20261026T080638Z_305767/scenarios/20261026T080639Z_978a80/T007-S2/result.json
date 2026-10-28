@@ -1,0 +1,105 @@
+{
+  "test_case": "T007",
+  "function": "F7",
+  "tester": "Hanlin Yu",
+  "nodeid": "tests/test_T007_add_to_cart.py::test_T007_S2_merge_duplicate_product",
+  "status": "Pass",
+  "phases": {
+    "setup": "passed",
+    "call": "passed",
+    "teardown": "passed"
+  },
+  "duration_seconds": 17.218609899748117,
+  "scenario_id": "T007-S2",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "selenium": "4.51.0",
+    "pytest": "9.1.1",
+    "headless": false,
+    "started_utc": "2026-10-26T08:06:39.939899+00:00",
+    "browser_session_created": true,
+    "browser": "chrome",
+    "browser_version": "155.0.8059.86",
+    "chromedriver": "155.0.8059.84 (5869fe313571d75152b77813cf0a4ee26a4e6df0-refs/branch-heads/8059@{#1303})",
+    "window": {
+      "width": 1440,
+      "height": 1084
+    }
+  },
+  "screenshots": [
+    "01_before_duplicate_add.png",
+    "02_after_duplicate_add.png"
+  ],
+  "events": [
+    {
+      "time_utc": "2026-10-26T08:06:39.939899+00:00",
+      "action": "browser_start_requested",
+      "browser": "Chrome"
+    },
+    {
+      "time_utc": "2026-10-26T08:06:49.885569+00:00",
+      "action": "setup_complete",
+      "baseline": "CartState(rows=(CartRow(product_id=41, name='iMac', model='Product 14', quantity='1', unit_price=Decimal('122.00'), line_total=Decimal('122.00'), options=()),), total=Decimal('122.00'), empty_message=False, stock_warning=False)"
+    },
+    {
+      "time_utc": "2026-10-26T08:06:50.037569+00:00",
+      "action": "before_duplicate_add",
+      "cart_state": {
+        "rows": [
+          {
+            "product_id": 41,
+            "name": "iMac",
+            "model": "Product 14",
+            "quantity": "1",
+            "unit_price": "122.00",
+            "line_total": "122.00",
+            "options": []
+          }
+        ],
+        "total": "122.00",
+        "empty_message": false,
+        "stock_warning": false
+      }
+    },
+    {
+      "time_utc": "2026-10-26T08:06:50.110569+00:00",
+      "action": "screenshot",
+      "file": "01_before_duplicate_add.png",
+      "url": "https://opencart.abstracta.us/index.php?route=checkout/cart"
+    },
+    {
+      "time_utc": "2026-10-26T08:06:50.110569+00:00",
+      "action": "add_again",
+      "product_id": 41,
+      "quantity": 1
+    },
+    {
+      "time_utc": "2026-10-26T08:06:52.910286+00:00",
+      "action": "after_duplicate_add",
+      "cart_state": {
+        "rows": [
+          {
+            "product_id": 41,
+            "name": "iMac",
+            "model": "Product 14",
+            "quantity": "2",
+            "unit_price": "122.00",
+            "line_total": "244.00",
+            "options": []
+          }
+        ],
+        "total": "244.00",
+        "empty_message": false,
+        "stock_warning": false
+      }
+    },
+    {
+      "time_utc": "2026-10-26T08:06:52.974371+00:00",
+      "action": "screenshot",
+      "file": "02_after_duplicate_add.png",
+      "url": "https://opencart.abstracta.us/index.php?route=checkout/cart"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,148 @@
+{
+  "test_case": "T009",
+  "function": "F9",
+  "tester": "Hanlin Yu",
+  "nodeid": "tests/test_T009_remove_item.py::test_T009_S2_remove_one_preserve_other",
+  "status": "Pass",
+  "phases": {
+    "setup": "passed",
+    "call": "passed",
+    "teardown": "passed"
+  },
+  "duration_seconds": 20.667954299831763,
+  "scenario_id": "T009-S2",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "selenium": "4.51.0",
+    "pytest": "9.1.1",
+    "headless": false,
+    "started_utc": "2026-10-26T08:07:08.710483+00:00",
+    "browser_session_created": true,
+    "browser": "chrome",
+    "browser_version": "155.0.8059.86",
+    "chromedriver": "155.0.8059.84 (5869fe313571d75152b77813cf0a4ee26a4e6df0-refs/branch-heads/8059@{#1303})",
+    "window": {
+      "width": 1440,
+      "height": 1084
+    }
+  },
+  "screenshots": [
+    "01_before_selective_remove.png",
+    "02_after_selective_remove.png",
+    "03_remaining_product_persists_after_refresh.png"
+  ],
+  "events": [
+    {
+      "time_utc": "2026-10-26T08:07:08.710483+00:00",
+      "action": "browser_start_requested",
+      "browser": "Chrome"
+    },
+    {
+      "time_utc": "2026-10-26T08:07:21.227094+00:00",
+      "action": "setup_complete",
+      "baseline": "CartState(rows=(CartRow(product_id=30, name='Canon EOS 5D', model='Product 3', quantity='1', unit_price=Decimal('98.00'), line_total=Decimal('98.00'), options=('Select: Red',)), CartRow(product_id=41, name='iMac', model='Product 14', quantity='1', unit_price=Decimal('122.00'), line_total=Decimal('122.00'), options=())), total=Decimal('220.00'), empty_message=False, stock_warning=False)"
+    },
+    {
+      "time_utc": "2026-10-26T08:07:21.444247+00:00",
+      "action": "before_selective_remove",
+      "cart_state": {
+        "rows": [
+          {
+            "product_id": 30,
+            "name": "Canon EOS 5D",
+            "model": "Product 3",
+            "quantity": "1",
+            "unit_price": "98.00",
+            "line_total": "98.00",
+            "options": [
+              "Select: Red"
+            ]
+          },
+          {
+            "product_id": 41,
+            "name": "iMac",
+            "model": "Product 14",
+            "quantity": "1",
+            "unit_price": "122.00",
+            "line_total": "122.00",
+            "options": []
+          }
+        ],
+        "total": "220.00",
+        "empty_message": false,
+        "stock_warning": false
+      }
+    },
+    {
+      "time_utc": "2026-10-26T08:07:21.534265+00:00",
+      "action": "screenshot",
+      "file": "01_before_selective_remove.png",
+      "url": "https://opencart.abstracta.us/index.php?route=checkout/cart"
+    },
+    {
+      "time_utc": "2026-10-26T08:07:21.534265+00:00",
+      "action": "remove_once",
+      "product_id": 41,
+      "preserve_product_id": 30,
+      "preserve_option": "Red"
+    },
+    {
+      "time_utc": "2026-10-26T08:07:23.368788+00:00",
+      "action": "after_selective_remove",
+      "cart_state": {
+        "rows": [
+          {
+            "product_id": 30,
+            "name": "Canon EOS 5D",
+            "model": "Product 3",
+            "quantity": "1",
+            "unit_price": "98.00",
+            "line_total": "98.00",
+            "options": [
+              "Select: Red"
+            ]
+          }
+        ],
+        "total": "98.00",
+        "empty_message": false,
+        "stock_warning": false
+      }
+    },
+    {
+      "time_utc": "2026-10-26T08:07:23.435817+00:00",
+      "action": "screenshot",
+      "file": "02_after_selective_remove.png",
+      "url": "https://opencart.abstracta.us/index.php?route=checkout/cart"
+    },
+    {
+      "time_utc": "2026-10-26T08:07:24.944000+00:00",
+      "action": "remaining_product_persists_after_refresh",
+      "cart_state": {
+        "rows": [
+          {
+            "product_id": 30,
+            "name": "Canon EOS 5D",
+            "model": "Product 3",
+            "quantity": "1",
+            "unit_price": "98.00",
+            "line_total": "98.00",
+            "options": [
+              "Select: Red"
+            ]
+          }
+        ],
+        "total": "98.00",
+        "empty_message": false,
+        "stock_warning": false
+      }
+    },
+    {
+      "time_utc": "2026-10-26T08:07:25.014016+00:00",
+      "action": "screenshot",
+      "file": "03_remaining_product_persists_after_refresh.png",
+      "url": "https://opencart.abstracta.us/index.php?route=checkout/cart"
+    }
+  ],
+  "warnings": []
+}

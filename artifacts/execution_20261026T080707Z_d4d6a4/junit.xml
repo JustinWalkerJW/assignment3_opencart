@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="20.685" timestamp="2026-10-26T19:07:08.584481+11:00" hostname="JW-Y9000P-IAX10H"><testcase classname="tests.test_T009_remove_item" name="test_T009_S2_remove_one_preserve_other" time="20.668" /></testsuite></testsuites>

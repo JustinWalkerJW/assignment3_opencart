@@ -1,0 +1,21 @@
+{
+  "completed_utc": "2026-10-26T08:06:57.049675+00:00",
+  "pytest_exit_code": 0,
+  "results": [
+    {
+      "scenario_id": "T007-S2",
+      "test_case": "T007",
+      "function": "F7",
+      "tester": "Hanlin Yu",
+      "nodeid": "tests/test_T007_add_to_cart.py::test_T007_S2_merge_duplicate_product",
+      "status": "Pass",
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "duration_seconds": 17.219,
+      "evidence_folder": "T007-S2"
+    }
+  ]
+}

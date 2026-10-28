@@ -1,0 +1,13 @@
+Command: ["C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\.venv\\Scripts\\python.exe", "-u", "-m", "pytest", "tests/test_T009_remove_item.py::test_T009_S2_remove_one_preserve_other", "-v", "--tb=short", "--driver-debug", "--wait-seconds", "20", "--artifacts-dir", "C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\artifacts\\execution_20261026T080707Z_d4d6a4\\scenarios", "--junitxml", "C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\artifacts\\execution_20261026T080707Z_d4d6a4\\junit.xml"]
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\29643\Downloads\assignment3_hanlin_opencart\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\29643\Downloads\assignment3_hanlin_opencart
+configfile: pytest.ini
+collecting ... collected 1 item
+
+tests/test_T009_remove_item.py::test_T009_S2_remove_one_preserve_other PASSED [100%]
+
+- generated xml file: C:\Users\29643\Downloads\assignment3_hanlin_opencart\artifacts\execution_20261026T080707Z_d4d6a4\junit.xml -
+= Assignment evidence: C:\Users\29643\Downloads\assignment3_hanlin_opencart\artifacts\execution_20261026T080707Z_d4d6a4\scenarios\20261026T080708Z_4b2729 =
+============================= 1 passed in 20.69s ==============================

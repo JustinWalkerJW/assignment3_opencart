@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="1" skipped="0" tests="9" time="180.699" timestamp="2026-10-26T18:47:32.446685+11:00" hostname="JW-Y9000P-IAX10H"><testcase classname="tests.test_T007_add_to_cart" name="test_T007_S1_add_one_valid_product" time="20.286" /><testcase classname="tests.test_T007_add_to_cart" name="test_T007_S2_merge_duplicate_product" time="34.761"><failure message="AssertionError: No success notification for product 41">cart_tests\shop.py:143: in expect_added
+    return self.wait.until(lambda _: self.success_alerts(pid))[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\selenium\webdriver\support\wait.py:121: in until
+    raise TimeoutException(message, screen, stacktrace)
+E   selenium.common.exceptions.TimeoutException: Message:
+
+The above exception was the direct cause of the following exception:
+tests\test_T007_add_to_cart.py:25: in test_T007_S2_merge_duplicate_product
+    shop.add_product(41, 1)
+cart_tests\shop.py:154: in add_product
+    self.expect_added(pid)
+cart_tests\shop.py:145: in expect_added
+    raise AssertionError(f"No success notification for product {pid}") from exc
+E   AssertionError: No success notification for product 41</failure></testcase><testcase classname="tests.test_T007_add_to_cart" name="test_T007_S3_reject_missing_required_select" time="17.318" /><testcase classname="tests.test_T008_update_quantity" name="test_T008_S1_increase_quantity" time="15.354" /><testcase classname="tests.test_T008_update_quantity" name="test_T008_S2_decrease_quantity" time="15.499" /><testcase classname="tests.test_T008_update_quantity" name="test_T008_S3_zero_quantity_removes_item" time="13.525" /><testcase classname="tests.test_T009_remove_item" name="test_T009_S1_remove_only_single_unit_item" time="13.326" /><testcase classname="tests.test_T009_remove_item" name="test_T009_S2_remove_one_preserve_other" time="36.159"><error message="failed on setup with &quot;cart_tests.shop.SetupIssue: Cannot establish this scenario's baseline: No success notification for product 30&quot;">cart_tests\shop.py:143: in expect_added
+    return self.wait.until(lambda _: self.success_alerts(pid))[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\selenium\webdriver\support\wait.py:121: in until
+    raise TimeoutException(message, screen, stacktrace)
+E   selenium.common.exceptions.TimeoutException: Message:
+
+The above exception was the direct cause of the following exception:
+conftest.py:123: in shop
+    app.add_product(pid, qty)
+cart_tests\shop.py:154: in add_product
+    self.expect_added(pid)
+cart_tests\shop.py:145: in expect_added
+    raise AssertionError(f"No success notification for product {pid}") from exc
+E   AssertionError: No success notification for product 30
+
+The above exception was the direct cause of the following exception:
+conftest.py:131: in shop
+    raise SetupIssue(f"Cannot establish this scenario's baseline: {exc}") from exc
+E   cart_tests.shop.SetupIssue: Cannot establish this scenario's baseline: No success notification for product 30</error></testcase><testcase classname="tests.test_T009_remove_item" name="test_T009_S3_remove_whole_multi_unit_row" time="14.010" /></testsuite></testsuites>

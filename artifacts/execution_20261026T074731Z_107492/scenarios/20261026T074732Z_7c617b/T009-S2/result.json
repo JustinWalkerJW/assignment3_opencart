@@ -1,0 +1,49 @@
+{
+  "test_case": "T009",
+  "function": "F9",
+  "tester": "Hanlin Yu",
+  "nodeid": "tests/test_T009_remove_item.py::test_T009_S2_remove_one_preserve_other",
+  "status": "Error",
+  "phases": {
+    "setup": "Error",
+    "teardown": "passed"
+  },
+  "duration_seconds": 36.15860679978505,
+  "problems": [
+    "cart_tests\\shop.py:143: in expect_added\n    return self.wait.until(lambda _: self.success_alerts(pid))[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n.venv\\Lib\\site-packages\\selenium\\webdriver\\support\\wait.py:121: in until\n    raise TimeoutException(message, screen, stacktrace)\nE   selenium.common.exceptions.TimeoutException: Message:\n\nThe above exception was the direct cause of the following exception:\nconftest.py:123: in shop\n    app.add_product(pid, qty)\ncart_tests\\shop.py:154: in add_product\n    self.expect_added(pid)\ncart_tests\\shop.py:145: in expect_added\n    raise AssertionError(f\"No success notification for product {pid}\") from exc\nE   AssertionError: No success notification for product 30\n\nThe above exception was the direct cause of the following exception:\nconftest.py:131: in shop\n    raise SetupIssue(f\"Cannot establish this scenario's baseline: {exc}\") from exc\nE   cart_tests.shop.SetupIssue: Cannot establish this scenario's baseline: No success notification for product 30"
+  ],
+  "scenario_id": "T009-S2",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "selenium": "4.51.0",
+    "pytest": "9.1.1",
+    "headless": false,
+    "started_utc": "2026-10-26T07:49:42.852832+00:00",
+    "browser_session_created": true,
+    "browser": "chrome",
+    "browser_version": "155.0.8059.86",
+    "chromedriver": "155.0.8059.84 (5869fe313571d75152b77813cf0a4ee26a4e6df0-refs/branch-heads/8059@{#1303})",
+    "window": {
+      "width": 1440,
+      "height": 1084
+    }
+  },
+  "screenshots": [
+    "01_setup_error.png"
+  ],
+  "events": [
+    {
+      "time_utc": "2026-10-26T07:49:42.852832+00:00",
+      "action": "browser_start_requested",
+      "browser": "Chrome"
+    },
+    {
+      "time_utc": "2026-10-26T07:50:12.786681+00:00",
+      "action": "screenshot",
+      "file": "01_setup_error.png",
+      "url": "https://opencart.abstracta.us/index.php?route=product/product&product_id=30"
+    }
+  ],
+  "warnings": []
+}

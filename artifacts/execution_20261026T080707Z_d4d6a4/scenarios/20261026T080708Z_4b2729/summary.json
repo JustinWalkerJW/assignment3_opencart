@@ -1,0 +1,21 @@
+{
+  "completed_utc": "2026-10-26T08:07:29.271275+00:00",
+  "pytest_exit_code": 0,
+  "results": [
+    {
+      "scenario_id": "T009-S2",
+      "test_case": "T009",
+      "function": "F9",
+      "tester": "Hanlin Yu",
+      "nodeid": "tests/test_T009_remove_item.py::test_T009_S2_remove_one_preserve_other",
+      "status": "Pass",
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "duration_seconds": 20.668,
+      "evidence_folder": "T009-S2"
+    }
+  ]
+}

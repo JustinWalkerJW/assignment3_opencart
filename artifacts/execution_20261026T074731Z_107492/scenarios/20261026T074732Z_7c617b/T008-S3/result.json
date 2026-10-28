@@ -1,0 +1,121 @@
+{
+  "test_case": "T008",
+  "function": "F8",
+  "tester": "Hanlin Yu",
+  "nodeid": "tests/test_T008_update_quantity.py::test_T008_S3_zero_quantity_removes_item",
+  "status": "Pass",
+  "phases": {
+    "setup": "passed",
+    "call": "passed",
+    "teardown": "passed"
+  },
+  "duration_seconds": 13.525360599858686,
+  "scenario_id": "T008-S3",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "selenium": "4.51.0",
+    "pytest": "9.1.1",
+    "headless": false,
+    "started_utc": "2026-10-26T07:49:15.992671+00:00",
+    "browser_session_created": true,
+    "browser": "chrome",
+    "browser_version": "155.0.8059.86",
+    "chromedriver": "155.0.8059.84 (5869fe313571d75152b77813cf0a4ee26a4e6df0-refs/branch-heads/8059@{#1303})",
+    "window": {
+      "width": 1440,
+      "height": 1084
+    }
+  },
+  "screenshots": [
+    "01_before_zero.png",
+    "02_zero_entered_before_update.png",
+    "03_after_zero_empty_cart.png",
+    "04_zero_removal_persists_after_refresh.png"
+  ],
+  "events": [
+    {
+      "time_utc": "2026-10-26T07:49:15.992671+00:00",
+      "action": "browser_start_requested",
+      "browser": "Chrome"
+    },
+    {
+      "time_utc": "2026-10-26T07:49:24.410152+00:00",
+      "action": "setup_complete",
+      "baseline": "CartState(rows=(CartRow(product_id=41, name='iMac', model='Product 14', quantity='1', unit_price=Decimal('122.00'), line_total=Decimal('122.00'), options=()),), total=Decimal('122.00'), empty_message=False, stock_warning=False)"
+    },
+    {
+      "time_utc": "2026-10-26T07:49:24.573846+00:00",
+      "action": "before_zero",
+      "cart_state": {
+        "rows": [
+          {
+            "product_id": 41,
+            "name": "iMac",
+            "model": "Product 14",
+            "quantity": "1",
+            "unit_price": "122.00",
+            "line_total": "122.00",
+            "options": []
+          }
+        ],
+        "total": "122.00",
+        "empty_message": false,
+        "stock_warning": false
+      }
+    },
+    {
+      "time_utc": "2026-10-26T07:49:24.636378+00:00",
+      "action": "screenshot",
+      "file": "01_before_zero.png",
+      "url": "https://opencart.abstracta.us/index.php?route=checkout/cart"
+    },
+    {
+      "time_utc": "2026-10-26T07:49:24.636378+00:00",
+      "action": "update_quantity",
+      "product_id": 41,
+      "old": 1,
+      "new": 0,
+      "basis": "Observed regression assumption; no independent zero-quantity specification"
+    },
+    {
+      "time_utc": "2026-10-26T07:49:24.811908+00:00",
+      "action": "screenshot",
+      "file": "02_zero_entered_before_update.png",
+      "url": "https://opencart.abstracta.us/index.php?route=checkout/cart"
+    },
+    {
+      "time_utc": "2026-10-26T07:49:26.000701+00:00",
+      "action": "after_zero_empty_cart",
+      "cart_state": {
+        "rows": [],
+        "total": null,
+        "empty_message": true,
+        "stock_warning": false
+      }
+    },
+    {
+      "time_utc": "2026-10-26T07:49:26.050326+00:00",
+      "action": "screenshot",
+      "file": "03_after_zero_empty_cart.png",
+      "url": "https://opencart.abstracta.us/index.php?route=checkout/cart"
+    },
+    {
+      "time_utc": "2026-10-26T07:49:26.635958+00:00",
+      "action": "zero_removal_persists_after_refresh",
+      "cart_state": {
+        "rows": [],
+        "total": null,
+        "empty_message": true,
+        "stock_warning": false
+      }
+    },
+    {
+      "time_utc": "2026-10-26T07:49:26.692734+00:00",
+      "action": "screenshot",
+      "file": "04_zero_removal_persists_after_refresh.png",
+      "url": "https://opencart.abstracta.us/index.php?route=checkout/cart"
+    }
+  ],
+  "warnings": []
+}

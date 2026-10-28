@@ -1,0 +1,35 @@
+{
+  "started_utc": "2026-10-26T07:47:31.690254+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "command": [
+    "C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\.venv\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "pytest",
+    "-v",
+    "--tb=short",
+    "--driver-debug",
+    "--wait-seconds",
+    "20",
+    "--artifacts-dir",
+    "C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\artifacts\\execution_20261026T074731Z_107492\\scenarios",
+    "--junitxml",
+    "C:\\Users\\29643\\Downloads\\assignment3_hanlin_opencart\\artifacts\\execution_20261026T074731Z_107492\\junit.xml"
+  ],
+  "source_sha256": {
+    "conftest.py": "1a634c288530f7c9f6d1b63b67b5878b6a18a388d7cf04450a7f096a11f606e8",
+    "pytest.ini": "4434220ee1329bc565f5b8f8f40a8ffd6363607be381993b17d9fc01be221668",
+    "requirements.txt": "5014067380c205942b03d7812ed729f1366e45357594c05085cf481ca2a6db7e",
+    "run_tests.py": "c2445a34734228cdb6b1853341981fd28626dcd0ff01ac9f02c5f0ab9f945c7c",
+    "cart_tests\\__init__.py": "ef695fd57fe726a16b99c794e7241fca2149dd0ef83383d8bc488a6753105110",
+    "cart_tests\\data.py": "d63f40556a3aaf35b478ead5b83901e4339c212df50b866fd9c65b67c0882a03",
+    "cart_tests\\evidence.py": "22b4b1dbad9ba95b8f4ba19fed1df7412dc7b304e0df117ec87ab407a53eac97",
+    "cart_tests\\shop.py": "2cec65881571c5077732d0d74c31e8c7446e5b17c019c10dab5144ce596a10d6",
+    "tests\\test_T007_add_to_cart.py": "7ddbce8ac774cf11ae57a3ba61fbd6bbb70d890eaea2f6661d55ea1bbfd028b1",
+    "tests\\test_T008_update_quantity.py": "a7e92eb0e207d5e42045f75ea91df9c2308db7ca6ef4ef46c631e0b3fc69c020",
+    "tests\\test_T009_remove_item.py": "9a5c39f33aae5aaaf88009f937772edfc963a07013481e1d5f45abb9d8d8f7e4"
+  },
+  "finished_utc": "2026-10-26T07:50:33.302145+00:00",
+  "exit_code": 1
+}

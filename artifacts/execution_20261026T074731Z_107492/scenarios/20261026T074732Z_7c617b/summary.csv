@@ -1,0 +1,10 @@
+﻿scenario_id,test_case,function,tester,status,duration_seconds,evidence_folder
+T007-S1,T007,F7,Hanlin Yu,Pass,20.286,T007-S1
+T007-S2,T007,F7,Hanlin Yu,Fail,34.761,T007-S2
+T007-S3,T007,F7,Hanlin Yu,Pass,17.318,T007-S3
+T008-S1,T008,F8,Hanlin Yu,Pass,15.354,T008-S1
+T008-S2,T008,F8,Hanlin Yu,Pass,15.499,T008-S2
+T008-S3,T008,F8,Hanlin Yu,Pass,13.525,T008-S3
+T009-S1,T009,F9,Hanlin Yu,Pass,13.326,T009-S1
+T009-S2,T009,F9,Hanlin Yu,Error,36.159,T009-S2
+T009-S3,T009,F9,Hanlin Yu,Pass,14.01,T009-S3
