@@ -1,0 +1,166 @@
+{
+  "revision": "OpenCart 26 October 2026",
+  "tester": "Hanlin Yu",
+  "base_url": "https://opencart.abstracta.us/",
+  "formal_execution": "Not run",
+  "cases": [
+    {
+      "id": "T007",
+      "function": "F7 - Add to Cart",
+      "source": "test_T007_add_to_cart.py",
+      "scenarios": [
+        {
+          "id": "T007-S1",
+          "title": "Add one valid product to an empty cart",
+          "pre": "Start a new guest session and verify that CART is empty. P41 is in stock and has no required option.",
+          "data": "P41 iMac; quantity 1; displayed unit price $122.00.",
+          "steps": [
+            "Open P41 and verify the product identity and displayed unit price.",
+            "Set Qty to 1 and click Add to Cart once.",
+            "Wait for the success notification and record its product name.",
+            "Open CART and inspect the main cart table and totals."
+          ],
+          "expected": "The notification confirms that iMac was added. Exactly one product row identifies P41, with quantity 1, unit price $122.00 and line total $122.00. The grand total is $122.00 under the common setup.",
+          "evidence": "Capture the success notification and the cart row with its quantity and amounts.",
+          "status": "Not run"
+        },
+        {
+          "id": "T007-S2",
+          "title": "Add the same product again",
+          "pre": "In a new guest session, add one P41. Verify one P41 row, quantity 1 and line total $122.00 in CART. P41 must have at least two units available.",
+          "data": "Existing P41 quantity 1; additional P41 quantity 1; identical product and options.",
+          "steps": [
+            "Record the baseline P41 row in CART.",
+            "Open P41, set Qty to 1 and click Add to Cart once.",
+            "Wait for the success notification, then reopen CART.",
+            "Count P41 rows and inspect the stored quantity and totals."
+          ],
+          "expected": "The additional unit is accepted. There is exactly one P41 row, rather than two duplicate rows. Its quantity is 2, its unit price remains $122.00 and its line total and cart grand total are $244.00.",
+          "evidence": "Capture the quantity 1 baseline and the resulting single row with quantity 2.",
+          "status": "Not run"
+        },
+        {
+          "id": "T007-S3",
+          "title": "Reject addition when a required option is missing",
+          "pre": "In a new guest session, add one P41 and verify its $122.00 cart total. Keep this row as a check that existing cart data is preserved.",
+          "data": "P30 Canon EOS 5D; Qty 1; required Select left as --- Please Select ---. Current base price $98.00.",
+          "steps": [
+            "Record the P41 baseline row and total in CART, then open P30.",
+            "Verify that Select is marked required. Leave the dropdown unselected and set Qty to 1.",
+            "Click Add to Cart and wait for the validation response.",
+            "Record the error message, then open CART and compare it with the baseline."
+          ],
+          "expected": "The page displays Select required! and does not confirm a successful P30 addition. No P30 row exists in CART. The existing P41 row remains quantity 1 and the grand total remains $122.00.",
+          "evidence": "Capture Select required! and CART showing the unchanged P41 row and no P30 row.",
+          "note": "The dropdown offers Red and Blue. This scenario deliberately leaves the required selection blank. It checks rejection and preservation of the existing iMac; no checkout is attempted.",
+          "status": "Not run"
+        }
+      ]
+    },
+    {
+      "id": "T008",
+      "function": "F8 - Update Cart Quantity",
+      "source": "test_T008_update_quantity.py",
+      "scenarios": [
+        {
+          "id": "T008-S1",
+          "title": "Increase the quantity of a cart item",
+          "pre": "In a new guest session, add one P41. Verify its quantity 1 and line total $122.00 in CART. P41 must have at least three units available.",
+          "data": "P41; quantity change 1 to 3; unchanged unit price $122.00.",
+          "steps": [
+            "Open CART and record the initial P41 quantity and line total.",
+            "Replace the P41 row quantity with 3 and click that row's Update button.",
+            "Wait for the update response and for the calculated amounts to finish changing.",
+            "Inspect the P41 row and grand total, then refresh CART and check the saved values."
+          ],
+          "expected": "The update succeeds. One P41 row remains with quantity 3, unit price $122.00 and line total $366.00. The grand total is $366.00. Refreshing the page preserves quantity 3 and the amounts.",
+          "evidence": "Capture the quantity 1 baseline and the completed quantity 3 result with its amounts.",
+          "status": "Not run"
+        },
+        {
+          "id": "T008-S2",
+          "title": "Reduce quantity to the minimum positive value",
+          "pre": "In a new guest session, add P41 with Qty 3. Verify quantity 3 and line total $366.00 in CART.",
+          "data": "P41; quantity change 3 to 1; unchanged unit price $122.00.",
+          "steps": [
+            "Open CART and record the quantity 3 baseline.",
+            "Replace the P41 row quantity with 1 and click that row's Update button.",
+            "Wait until the update completes, then inspect the stored quantity and calculated amounts.",
+            "Refresh CART and confirm that the item remains present with the reduced quantity."
+          ],
+          "expected": "The update succeeds without removing P41. Exactly one P41 row remains, with quantity 1, unit price $122.00 and line total $122.00. The grand total is $122.00, and the values persist after refresh.",
+          "evidence": "Capture the quantity 3 baseline and the quantity 1 result with its amounts.",
+          "status": "Not run"
+        },
+        {
+          "id": "T008-S3",
+          "title": "Update the last cart item to zero quantity",
+          "pre": "In a new guest session, add one P41. Verify that it is the only product in CART.",
+          "data": "P41; quantity change 1 to 0 through the cart quantity field.",
+          "steps": [
+            "Open CART and record the existing P41 row.",
+            "Replace its quantity with 0 and capture the entered value before submitting.",
+            "Click the same row's Update button and wait for the resulting cart state.",
+            "Refresh CART and check whether the product remains absent."
+          ],
+          "expected": "Characterization expectation: the P41 row is removed, the main cart area displays Your shopping cart is empty!, and no product rows remain. The empty state persists after refresh. Do not require a $0.00 totals table, because the empty-cart page may omit that table.",
+          "evidence": "Capture quantity 0 before Update and the resulting main-page empty-cart message.",
+          "note": "Zero-removal was observed during exploratory cart checks. This is a provisional regression expectation for the iMac scenario, not an independently specified rule for all non-positive quantities.",
+          "status": "Not run"
+        }
+      ]
+    },
+    {
+      "id": "T009",
+      "function": "F9 - Remove Cart Item",
+      "source": "test_T009_remove_item.py",
+      "scenarios": [
+        {
+          "id": "T009-S1",
+          "title": "Remove the only single-unit item",
+          "pre": "In a new guest session, add one P41. Verify exactly one product row with quantity 1 in CART.",
+          "data": "Only product P41; quantity 1; removal through the row's Remove button.",
+          "steps": [
+            "Open CART and record the P41 baseline row.",
+            "Click Remove in the P41 row once.",
+            "Wait until the row disappears and inspect the main cart area.",
+            "Confirm that the empty-cart page offers a Continue link."
+          ],
+          "expected": "The P41 row is removed. The main cart area displays Your shopping cart is empty! and contains no product rows. A Continue link is available. No checkout is attempted.",
+          "evidence": "Capture the single-item baseline and the resulting empty-cart page.",
+          "status": "Not run"
+        },
+        {
+          "id": "T009-S2",
+          "title": "Remove one product while preserving another",
+          "pre": "In a new guest session, add P41 quantity 1 and P30 quantity 1 with Select set to Red. Verify two distinct rows, no stock warning, and grand total $220.00 in CART.",
+          "data": "Remove P41 iMac. Retain P30 Canon EOS 5D, Select Red, quantity 1, unit and line price $98.00.",
+          "steps": [
+            "Open CART and record both products, quantities and amounts. Verify Select: Red in the Canon row.",
+            "Click Remove in the P41 row only.",
+            "Wait for P41 to disappear and for the cart total to recalculate.",
+            "Inspect the remaining P30 row, including Select: Red, then refresh CART to confirm that the row and option are preserved."
+          ],
+          "expected": "P41 is absent. Exactly one product row remains: P30 Canon EOS 5D, Select: Red, quantity 1, unit price $98.00 and line total $98.00. The grand total decreases from $220.00 to $98.00. Refreshing preserves the same product, option, quantity and amounts.",
+          "evidence": "Capture both initial rows and the final P30-only cart with grand total $98.00.",
+          "status": "Not run"
+        },
+        {
+          "id": "T009-S3",
+          "title": "Remove an entire multi-unit product row",
+          "pre": "In a new guest session, add P41 with Qty 3. Verify one P41 row, quantity 3 and line total $366.00 in CART.",
+          "data": "Only product P41; quantity 3; one click on Remove.",
+          "steps": [
+            "Open CART and record the P41 row with quantity 3.",
+            "Click Remove in that row once; do not alter its quantity first.",
+            "Wait for the result and verify that the entire row is gone rather than reduced to quantity 2.",
+            "Refresh CART and inspect the main cart area again."
+          ],
+          "expected": "One Remove action deletes all three units in the P41 row. No product rows remain and the main cart area displays Your shopping cart is empty!. Refreshing does not restore the removed item.",
+          "evidence": "Capture quantity 3 before removal and the empty-cart state after refresh.",
+          "status": "Not run"
+        }
+      ]
+    }
+  ]
+}

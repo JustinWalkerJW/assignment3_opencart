@@ -1,0 +1,43 @@
+Assignment 3 OpenCart exploration baseline
+Design owner: Hanlin Yu
+Observation date: 26 October 2026
+Scope: F7 Add to Cart, F8 Update Cart Quantity, F9 Remove Cart Item
+Site: https://opencart.abstracta.us/
+
+Observed data and behavior
+P41 iMac, Product 14, $122.00, displayed availability 479, no required options.
+One unit was added without a stock warning. Repeated addition merged into one row
+with two units at $244.00. Updating to three units produced $366.00. One Remove
+action deleted the whole row, and the empty state persisted after refresh.
+
+P30 Canon EOS 5D, Product 3, current price $98.00, displayed availability 20.
+The original $122.00 price is crossed out. Required dropdown Select has placeholder,
+Red (value 15) and Blue (value 16), with element ID input-option226.
+Leaving Select empty produced Select required! and preserved an existing iMac.
+Selecting Red and adding one Canon produced one row with Select: Red, $98.00,
+and no stock warning. iMac quantity 1 plus Canon Red quantity 1 totaled $220.00.
+Removing iMac preserved Canon Red quantity 1 at $98.00. Test items were removed.
+
+Quantity updates 3 to 1 and 1 to 0 were observed during earlier OpenCart exploration
+using iPhone. Zero removed that row and remained empty after refresh. The iMac
+zero-removal scenario is a provisional regression expectation, not a formal result.
+
+Excluded candidates
+iPhone P40 showed In Stock on the product page but a stock warning in the cart
+even for quantity 1. MacBook P43 was Out Of Stock; Galaxy Tab P49 was Pre-Order;
+SyncMaster P33 showed 2-3 Days. Apple Cinema P42 had many required options instead
+of the old Size-only configuration. These products are not used in this revision.
+
+DOM observations used by the implementation
+Product pages have a store h1 and a separate product h1; use #content h1.
+Availability is a list item with textual status or a numeric count.
+The current price is a visible #content li h2; crossed-out original prices are spans.
+Product quantity input is #input-quantity; Add button is #button-cart.
+Currency form is #form-currency; USD menu button has name=USD.
+Success notification uses .alert-success. Cart quantities have dynamic quantity[key].
+Update/Remove labels are in data-original-title after tooltip initialization.
+Cart rows and amount checks must be scoped to #content, not the hidden mini-cart.
+
+These are exploratory observations, performed with browser assistance to establish
+test data and design. They are not nine independently executed pytest results.
+No formal execution screenshots or Pass results are included in this package.

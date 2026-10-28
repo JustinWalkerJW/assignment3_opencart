@@ -1,0 +1,39 @@
+LOCAL IMPLEMENTATION VALIDATION - STAGES 1 TO 3
+Project: Assignment 3 / Hanlin Yu / OpenCart / F7-F9
+Date: 2026-10-26
+
+Scope
+This record concerns offline implementation checks, not formal website test
+execution. All nine designed scenarios remain Not run. No stage-4 results or
+runtime screenshots are supplied in this source package.
+
+Environment used for local checks
+Python 3.12.14
+Selenium 4.51.0
+pytest 9.1.1
+Chrome/ChromeDriver versions: not established by these offline checks.
+
+Completed checks
+1. Python compileall completed successfully for cart_tests, tests, conftest.py
+   and run_tests.py.
+2. python run_tests.py --collect-only discovered exactly nine test functions:
+   three for T007, three for T008 and three for T009. No browser was started.
+3. Scenario markers and source filenames match SCENARIOS.json. All nine IDs
+   are unique, all metadata statuses are Not run, and setup product IDs exist
+   in the product registry.
+4. Fixed Decimal baselines were checked: iMac 122.00 x 3 = 366.00; iMac 122.00
+   plus Canon 98.00 = 220.00.
+5. Offline cart assertion checks used supplied CartState objects, without a
+   website or browser. The expected Canon Select: Red state was accepted.
+   A Blue option, a stock warning, duplicate iMac rows and stale amounts for
+   quantity three were each rejected. The expected empty state was accepted.
+6. The revised eight-page Word document was rendered and visually reviewed.
+7. The source ZIP excludes caches, virtual environments and old execution
+   artifacts. No artifacts directory is present in this project at delivery.
+
+Interpretation
+These checks establish source validity, test discovery, metadata consistency
+and selected assertion behavior. They do not establish that Selenium can
+start Chrome on the final machine, that every UI locator succeeds during a
+formal run, or that the nine website scenarios pass. Stage 4 must run the
+suite and review its actual evidence before assigning Pass, Fail or Error.
